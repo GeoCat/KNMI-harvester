@@ -40,7 +40,7 @@ jobs:
           if git diff --exit-code; then
             echo "No changes detected. Skipping commit."
           else
-            git add data.txt  # Replace with the file(s) your script modifies, or use `git add .`
+            git add datasets-index.html  # Replace with the file(s) your script modifies, or use `git add .`
             git commit -m "Automated update from Python script"
             git push
           fi
