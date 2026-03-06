@@ -68,5 +68,5 @@ if __name__ == "__main__":
         f.write("<html><body>")
         for link in found_links:
             f.write(f"<a href=\"{link}\">{link}</a>\n")
-        f.write("</body></html>")
+        f.write("</body></html>\n")
     print(f"\nAll links have been saved to {output_file}")
