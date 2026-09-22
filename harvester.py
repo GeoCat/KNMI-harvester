@@ -62,6 +62,10 @@ def get_iso_xml_links():
             data = response.json()
         except requests.exceptions.RequestException as e:
             print(f"Error connecting to the API at start={start}: {e}")
+            if hasattr(e, 'response') and e.response is not None:
+                print(f"Response status: {e.response.status_code}")
+                print(f"Response headers: {dict(e.response.headers)}")
+                print(f"Response body: {e.response.text[:500]}")
             return None
         except ValueError as e:
             print(f"Error parsing API response: {e}")
