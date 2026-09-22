@@ -28,6 +28,8 @@ jobs:
         run: pip install requests
 
       - name: Run Python script
+        env:
+          KNMI_API_KEY: ${{ secrets.KNMI_API_KEY }}
         run: python harvester.py
 
       - name: Commit and push changes
