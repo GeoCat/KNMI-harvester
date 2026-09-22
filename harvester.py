@@ -28,9 +28,14 @@ def build_http_session() -> requests.Session:
     }
     
     # Read API key if present in environment
+    headers = {
+        "User-Agent": "KNMI-ISO-Harvester/1.0",
+    }
     api_key = os.getenv("KNMI_API_KEY")
     if api_key:
         headers["Authorization"] = api_key
+        headers["X-API-Key"] = api_key
+        headers["X-Gravitee-Api-Key"] = api_key  # KNMI uses Gravitee for API management
 
     session.headers.update(headers)
     return session
